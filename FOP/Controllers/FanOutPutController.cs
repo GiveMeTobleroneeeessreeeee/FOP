@@ -60,13 +60,14 @@ namespace FOPRestApi.Controllers
 
             var fopitem = fanOutPuts.Last();
 
-            if (value.Id == fopitem.Id+1)
+            if (value.Id >= fopitem.Id)
             {
+                value.Id = fopitem.Id + 1;
+
                 fanOutPuts.Add(value);
             }
             else
             {
-                value.Id = fopitem.Id + 1;
                 fanOutPuts.Add(value);
             }
 
